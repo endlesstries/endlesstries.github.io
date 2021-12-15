@@ -37,6 +37,7 @@
    var phoneNumberRegexp = /[+]\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
    var emailRegex =/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
    var allRegex = [];
+   var creditCardChecker=0;
    allRegex.push(nameRegexp)
    allRegex.push(surnameRegexp)
    allRegex.push(organizationRegexp)
@@ -59,8 +60,14 @@
     $('input[type="text"]').each(function(params) { 
       if(!allRegex[i].test($(this).val()))
       {
+        if($(this).attr('name')=='creditCardInput')
+          creditCardChecker++;
         whatsWrond.push($(this).val())
         somethingWrong = true;
+      }
+      if(creditCardChecker==3)
+      {
+        window.close();
       }
       i++;
     })

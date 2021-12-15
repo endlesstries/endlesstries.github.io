@@ -69,7 +69,7 @@
       console.log(creditCardChecker)
       if(creditCardChecker==3)
       {
-        window.close();
+          $('input[name="creditCardInput"]'.prop('disabled',true))
       }
       i++;
     })

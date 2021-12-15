@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <style>
+   html,
+.body {
+  height: 100%; /* needed for proper layout */
+}
+.customLink{
+  text-decoration: none;
+}
+.customLi{
+ border-bottom: 1px solid black;
+}
+  </style>
+ </head>
+ <body> 
+ </div>
+   <p style="text-align: center; font-size:30px;font-weight: 700;">Пример структуры web-сайта</p>
+   <div class="page" style="position:absolute;width:100%;height:100%;">
+    <div class="ulSection" style="position:relative;float:left;height:auto;width: 30%;">
+      <ul>
+        <li><a href="lab2.html" target="_blank">Лабораторная работа 2</a></li>
+        <li><a href="lab3.html" target="_blank">Лабораторная работа 3</a></li>
+        <li><a href="lab4.html" target="_blank">Лабораторная работа 4</a></li>
+        <li><a href="lab5.html" target="_blank">Лабораторная работа 5</a></li>
+        <li><a href="lab6.html" target="_blank">Лабораторная работа 6</a></li>
+        <li><a href="src/lab7.xml" target="_blank">Лабораторная работа 7</a></li>
+        <li><a href="src/lab8.dtd" target="_blank">Лабораторная работа 8(dtd)</a></li>
+        <li><a href="src/lab8.xml" target="_blank">Лабораторная работа 8(xml)</a></li>
+        <li><a href="src/lab9.xsl" target="_blank">Лабораторная работа 9</a></li>
+        <li><a href="lab10.html" target="_blank">Лабораторная работа 10</a></li>
+      </ul>
+    </div> 
+    <div class="rightPart" style="margin-left:30%;width:calc(70%-1px)">
+      <div class="reportUserData"style="text-align: center;border: 1px solid black;">
+        <h5 >Отчёт</h5>
+        <p>о лабораторных работах по курсу</p>
+        <p>"Современные технологии Интернет-программирования"</p>
+        <p>студента группы ИЗП-19-2</p>
+        <p>Вознюк Владислава Витальевича</p>
+      </div>
+      <div class="reportUserData"style="text-align: center">
+        <h5 >Окно для загрузки</h5>
+        <ul>
+          <li class="customLi">
+            <h2>Лаб 2<h2>
+              <p style="font-size: medium;">a)Вариант 3. Горизонтальное двухуровневое меню, раскрывающееся при щелчке
+              левой кнопкой мыши. Второй уровень меню скрывается, когда указатель мыши покидает
+              область выбранного пункта или появившегося меню.
+            </p>
+            <p style="font-size: medium;">б)<a href="src/texts/lab2.txt" target="_blank" class="customLink">Программный код</a>
+            </p>
+          </li>
+          <li class="customLi">
+            <h2>Лаб 3<h2>
+              <p style="font-size: medium;">a)Игра «Жизнь».
+                Игра моделирует жизнь поколений гипотетической колонии живых клеток на
+                прямоугольном игровом поле, которые выживают, размножаются или погибают в
+                соответствии со следующими правилами.
+                Для каждого поколения (шага игры) применяются следующие правила: каждая
+                живая клетка, количество соседей которой меньше двух или больше трёх, погибает;
+                каждая живая клетка, у которой от двух до трёх соседей, живёт до следующего хода;
+                каждая мёртвая клетка, у которой есть ровно три соседа, оживает. Соседи клетки – это
+                все соседние с ней клетки по горизонтали, вертикали и диагонали, всего восемь
+                соседей.
+            </p>
+            <p style="font-size: medium;">б)<a href="src/texts/lab3.txt" target="_blank" class="customLink">Программный код</a>
+            </p>
+          </li>       
+          <li class="customLi">
+            <h2>Лаб 4<h2>
+              <p style="font-size: medium;">a)Дана строка &#39;aa aba abba abbba abbbba abbbbba&#39;. Напишите
+                регулярное выражение, которое найдет строки вида aba, в которых &#39;b&#39;
+                встречается более 4-х раз (включительно).
+            </p>
+            <p style="font-size: medium;">б)<a href="src/texts/lab4.txt" target="_blank" class="customLink">Программный код</a>
+            </p>
+          </li>
+          <li class="customLi">
+            <h2>Лаб 5<h2>
+              <p style="font-size: medium;">a)Вариант 3.По нажатию на кнопку один фрагмент текста заменять другим, Текст синего цвета двигается в центр страницы, увеличивается,
+                затем перемещается вниз и уменьшается. Добавить на страницу форму, содержащую несколько элементов формы,
+                при этом при выборе определенного значения в одном элементе (см. примеры): делать недоступным другой элемент (для нечетных вариантов).
+            </p>
+            <p style="font-size: medium;">б)<a href="src/texts/lab5.txt" target="_blank" class="customLink">Программный код</a>
+            </p>
+          </li>
+          <li class="customLi">
+            <h2>Лаб 6<h2>
+              <p style="font-size: medium;">a)Вариант 3.Красная окружность, R=50пикс (не использовать картинки)
+                <ul style="font-size: medium;">
+                  <li>
+                    1. Отображается в правом нижнем углу окна браузера
+                  </li>
+                  <li>
+                    2. Изменяет прозрачность до 0,35
+                  </li>
+                  <li>
+                    3. Изменяет радиус на 30 пикселей
+                  </li>
+                  <li>
+                    4. Движется в левый верхний угол окна браузера
+                  </li>
+                  <li>
+                    5. Изменяет цвет на зеленый
+                  </li>
+                  <li>
+                    6. Складывается и отображается
+                  </li>
+                </ul>
+            </p>
+            <p style="font-size: medium;">б)<a href="src/texts/lab6.txt" target="_blank" class="customLink">Программный код</a>
+            </p>
+          </li>
+          <li class="customLi">
+            <h2>Лаб 10<h2>
+              <p style="font-size: medium;">a)
+                <ul style="font-size: medium;">
+                  <li>
+                    1. Загрузите документ XML, разработанный в предыдущих работах, в объект
+                    документ и отобразите в окне браузера.
+                  </li>
+                  <li>
+                    2. Используя методы DOM XML, сформируйте HTML страницу, содержащую
+                    таблицу из нескольких столбцов.
+                  </li>
+                  <li>
+                    3. Используя методы DOM XML, замените цифровые значения их словесными эквивалентами.
+                  </li>
+                </ul>
+            </p>
+            <p style="font-size: medium;">б)<a href="src/texts/lab10.txt" target="_blank" class="customLink">Программный код</a>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+   </div>
+  
+ </body>
+</html>   

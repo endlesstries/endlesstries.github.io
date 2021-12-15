@@ -1,0 +1,109 @@
+var rows= 100;
+var cols=100;
+var currentGeneration = 0;
+var refreshTime = 500;
+var body = document.getElementsByTagName("body")[0];
+  var tbl = document.createElement("table");
+  var tblBody = document.createElement("tbody");
+  for (var i = 0; i < rows; i++) {
+    var row = document.createElement("tr");
+    for (var j = 0; j < cols; j++) {
+      var cell = document.createElement("td");
+      row.appendChild(cell);
+    }
+    tblBody.appendChild(row);
+  }
+  tbl.appendChild(tblBody);
+  body.appendChild(tbl);
+  tbl.setAttribute("cellspacing", "0");
+  tbl.setAttribute("id","lifeSimulation")
+  var myTable = document.getElementById("lifeSimulation");
+  var field = createArray(100,100,0);
+  gameEngine();
+  updateField();
+  console.log(field)
+  generateField();
+  function gameEngine() {
+    for (var i = 0; i < cols; i++)
+    {
+        for (var j = 0; j < rows; j++)
+        {
+            field[i][j] =getRandomInt(2)==0;
+        }
+    }
+} 
+function updateField() {
+    for (var i = 0; i < cols; i++)
+    {
+        for (var j = 0; j < rows; j++)
+        {
+            myTable.rows[i].cells[j].style.backgroundColor= field[i][j]==0?"black":"crimson";
+        }
+    }
+  }
+ function nextGeneration()
+        {
+            var newField = createArray(cols,rows,false);
+            for (var i = 0; i < cols; i++)
+            {
+                for (var j = 0; j < rows; j++)
+                {
+                    var neighboursCount = countNeighbours(i, j);
+                    var hasLife = field[i][j];
+
+                    if (!hasLife && neighboursCount == 3)
+                        newField[i][j] = true;
+                    else if (hasLife && (neighboursCount < 2 || neighboursCount > 3))
+                        newField[i][j] = false;
+                    else
+                        newField[i][j] = field[i][j];
+                   
+
+                }
+            }
+            field = newField;
+            currentGeneration++;
+        }
+        function countNeighbours(x, y)
+        {
+            var counter = 0;
+            for (var i = -1; i < 2; i++)
+            {
+                for (var j = -1; j < 2; j++)
+                {
+                    var col = (x + i + cols) % cols;
+                    var row = (y + j + rows) % rows;
+                    var isSelfChecking = col == x && row == y;
+                    var hasLife = field[col][row];
+                    if (hasLife && !isSelfChecking)
+                        counter++;
+                }
+            }
+            return counter;
+        }
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+  
+  function createArray( rows, cols, defaultValue){
+
+    var arr = [];
+    for(var i=0; i < rows; i++){
+        arr.push([]);
+        arr[i].push( new Array(cols));
+  
+        for(var j=0; j < cols; j++){
+          arr[i][j] = defaultValue;
+        }
+    }
+  
+  return arr;
+  }
+  function generateField (){ 
+    setTimeout(function genF() {
+      nextGeneration();
+        updateField();
+        $(document).attr("title", currentGeneration);
+        setTimeout(genF,refreshTime)
+      },refreshTime);
+   }

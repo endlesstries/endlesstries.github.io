@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE cookbook (book)
+[
+<!ELEMENT book (type,name,weight,ingredients,method,caloriesAmount)>
+<!ELEMENT type	(#PCDATA)>
+<!ELEMENT name	(#PCDATA)>
+<!ELEMENT weight (#PCDATA)>
+<!ELEMENT ingredients   (ingredient)+>
+<!ELEMENT method   (step)+>
+<!ELEMENT caloriesAmount   (#PCDATA)>
+]>

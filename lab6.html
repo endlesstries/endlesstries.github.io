@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+    <link rel="stylesheet" href="src/style.css">
+ </head>
+ <body> 
+ <div class="redCycle"></div>
+ <button id="divButton" style="position:absolute;background-color:greenyellow;left: 50%;top: 50%;margin-top: -50px;margin-left: -50px;">PRESS ME</button>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+ <script>
+   $('button#divButton').click(function (){
+     var redCycle = $('.redCycle');
+     redCycle.animate({opacity:'0.35'},'slow');
+     redCycle.animate({borderRadius:'35px',width:'70px',height:'70px'},'slow');
+     redCycle.animate({left:'0',top:'0'},'slow');
+     redCycle.animate({width:'0px'},'slow')
+     redCycle.animate({width:'70px'},'slow')
+     redCycle.promise().done(function () {
+       $(this).css('background-color','yellowgreen');
+       })
+   })
+ </script>
+ </body>
+</html>   

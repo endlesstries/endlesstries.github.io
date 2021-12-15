@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+    <link rel="stylesheet" href="src/style.css">
+ </head>
+ <body> 
+    <nav class="menu">
+      <h3>Menu</h3>
+        <ul class="topmenu">
+          <li>Home</li>
+          <li>Work</li>
+          <li>About
+            <ul class="submenu">
+              <li>Item 1</li>
+              <li>Item 2</li>
+            </ul>
+          </li>
+          <li>Blog</li>
+          <li>Contact   
+          </li>
+        </ul>
+
+      </nav>
+      <div class="imageSlider">
+        <img width="100" height="100" alt="lorem" id="picture">
+        <input type="button" value="Назад" onclick="Show (-1)">
+        <input type="button" value="Вперёд" onclick="Show (1)">        
+      </div>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script>
+       $(document).ready(function (param) {
+        $(".menu .topmenu").hide();
+        $(".menu .submenu").hide();
+       })
+    $(".menu").find("h3").click(function(){ 
+    $(".menu").find(".topmenu").toggle("slide");    
+});
+$(".menu").find("li:nth-child(3n)").hover(function () { 
+    $(".menu").find(".submenu").slideDown();
+},function() {
+    $(".menu").find(".submenu").slideUp();
+});
+
+     </script>
+     <script>
+    var numing=0;
+var imageArray = new Array();
+imageArray[0]="img/1.png"
+imageArray[1]="img/2.png"
+imageArray[2]="img/3.png"
+imageArray[3]="img/4.png"
+$("#picture").attr('src',imageArray[0]);
+function Show (dir)
+{
+numing += dir;
+if(numing<0)numing=0;
+else if(numing>=imageArray.length)numing=imageArray.length-1;
+$("#picture").attr('src',imageArray[numing]);
+}
+</script>
+ </body>
+</html>   

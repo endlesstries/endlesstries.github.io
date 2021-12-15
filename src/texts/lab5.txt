@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <style>
+        .pText{
+            position: absolute;
+        }
+        .forms{
+            margin-top: 5%;
+        }
+    </style>
+    <body>
+        <p class="pText">Одну часть из этого текста мы будем заменять</p>
+        <button id="textButton"><span style="background-color:aqua">Press me!</span></button>
+
+    <div class="forms">
+        <form>
+            <label><input type="checkbox" id="First" value="first">Первый</label><br>
+            
+            <label><input type="checkbox" id="Second" value="second">Второй</label><br>
+            
+            <label><input type="checkbox" id="Third" value="third">Третий</label>
+          </form>
+    </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+        var isBigger = false;
+        var defaultTextSize =$("p.pText").css('fontSize');
+        $("#textButton").click(function () {
+            $("p.pText").text($("p.pText").text().replace('часть','вот эту'));
+            $("p.pText").css('color','blue');
+            if(!isBigger)
+            {
+                $("p.pText").animate({
+                    left: "+=40%",
+                    top:"+=35%",
+                    fontSize:"30px",
+                });
+                $("p.pText").animate({
+                    left: "+=45%",
+                    top:"+=45%",
+                    fontSize:defaultTextSize,
+                });
+                isBigger=true;
+            }
+            else{
+                $("p.pText").animate({
+                    left: "-=40%",
+                    top:"-=35%",
+                    fontSize:"30px",
+                });
+                $("p.pText").animate({
+                    left: "-=45%",
+                    top:"-=45%",
+                    fontSize:defaultTextSize,
+                });
+                $("p.pText").css('color','black');
+                isBigger=false;
+            }
+        });
+        var disabledElements = false;
+        $(".forms input:checkbox").click(function() { 
+            $(".forms input:checkbox").each(function () {
+                if(!disabledElements)
+                {
+                    if(!$(this).is(":checked"))
+                        $(this).attr('disabled','disabled');
+                }
+                else
+                {
+                    $(this).removeAttr('disabled');
+                }
+              })
+              disabledElements=!disabledElements;
+         });
+        </script>
+    </body>
+</html>

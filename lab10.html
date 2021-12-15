@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
+</head>
+<body>
+	<div id="example"></div>
+	<script>
+	   function loadXMLDoc(filename) {
+        if (window.ActiveXObject) {
+             xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+        } else {
+             xhttp = new XMLHttpRequest();
+        }
+        xhttp.open("GET", filename, false);
+        xhttp.send("");
+        return xhttp.responseXML;
+     }
+
+     xml = loadXMLDoc("src/lab7xsl.xml");
+     xsl = loadXMLDoc("src/lab9.xsl");
+     xml2 = xml.cloneNode(true);
+     xml2.getElementsByTagName("weight")[0].childNodes[0].nodeValue=xml2.getElementsByTagName("weight")[0].childNodes[0].nodeValue.replace('500','Пятьсот');
+    for(var [key,value] of Object.entries(xml2.getElementsByTagName("ingredients")[0].children))
+    {
+    }
+                //.forEach(element => {
+    //      console.log(element)
+    //  });
+     xml2.getElementsByTagName("ingredients")[0].children[0].attributes[1].nodeValue = xml2.getElementsByTagName("ingredients")[0].children[0].attributes[1].nodeValue.replace('500','Пятьсот')
+  //   console.log(xml2.getElementsByTagName("weight")[0].childNodes[0].nodeValue)
+
+     console.log(xsl)
+     if (document.implementation && document.implementation.createDocument) {
+        xsltProcessor = new XSLTProcessor();
+        xsltProcessor.importStylesheet(xsl);
+        resultDocument = xsltProcessor.transformToFragment(xml, document);
+        document.getElementById('example').appendChild(resultDocument);
+     }
+     if (document.implementation && document.implementation.createDocument) {
+        xsltProcessor = new XSLTProcessor();
+        xsltProcessor.importStylesheet(xsl);
+        resultDocument = xsltProcessor.transformToFragment(xml2, document);
+        document.getElementById('example').appendChild(resultDocument);
+     }
+     console.log(resultDocument)
+		</script>
+</body>
+</html>

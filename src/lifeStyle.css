@@ -1,0 +1,12 @@
+table{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top:0;
+}
+  table td{
+    width: 5px;
+    height: 5px;
+    border:1px black solid;
+  }

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+    <link rel="stylesheet" href="src/style.css">
+ </head>
+ <body> 
+   <div class="checker">
+     <p>Имя</p>
+     <input type="text" name="nameInput" class="">
+     <p>Фамилия</p>
+     <input type="text" name="surnameInput" id="">
+     <p>Наименование организации</p>
+     <input type="text" name="organizationInput" id="">
+     <p>Номер кредитной карты</p>
+     <input type="text" name="creditCardInput" id="">
+     <p>Номер телефона</p>
+     <input type="text" name="phoneNumberInput" id="">
+     <p>Адрес электронной почты</p>
+     <input type="text" name="emailInput" id="">
+     <br>
+     <input type="button" value="Отправить">
+     <input type="button" value="Очистить">
+   </div>
+   <div class="main-info">
+     <p class='exampleText'>aa aba abba abbba abbbba abbbbba</p>
+     <p class='formattedText'></p>
+     <button class='formatBtn'><span style="color:red">Press me</span></button>
+   </div>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+ <script>
+   var nameRegexp = /^([А-ЯЁ]{1}[а-яё]{0,}[-`]{0,1}[а-яё]+)*/;
+   var surnameRegexp = /^([А-ЯЁ]{1}[а-яё]{0,}[-`]{0,1}[а-яё]+)*/;
+   var organizationRegexp = /^[А-ЯЁ]*\s{0,1}\"[\sА-ЯЁа-яё]*\"$/;
+   var creditCardRegexp = /^\d{4}\s\d{4}\s\d{4}\s\d{4}/;
+   var phoneNumberRegexp = /[+]\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
+   var emailRegex =/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+   var allRegex = [];
+   allRegex.push(nameRegexp)
+   allRegex.push(surnameRegexp)
+   allRegex.push(organizationRegexp)
+   allRegex.push(creditCardRegexp)
+   allRegex.push(phoneNumberRegexp)
+   allRegex.push(emailRegex)
+   $('.formatBtn').click(function (param) { $('.main-info .formattedText').text($('.main-info .exampleText').text().replace(/ab{4,}a/g,'!'))  });
+  $('input[type="button"][value="Отправить"]').click(function (param) {
+    $('input[type="text"]').each(function () {
+      var isEmpty=false;
+      if($(this).val().trim()=='')
+      {
+        alert("Не все строки заполнены")
+        return false;
+      }
+    })
+    var somethingWrong = false;
+    var whatsWrond=[];
+    var i=0;
+    $('input[type="text"]').each(function(params) { 
+      if(!allRegex[i].test($(this).val()))
+      {
+        whatsWrond.push($(this).val())
+        somethingWrong = true;
+      }
+      i++;
+    })
+    if(somethingWrong)
+    {
+      alert(`Строки ${whatsWrond.join(',')} не подходят`)
+    }
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   $('input[type="button"][value="Очистить"]').click(function (param) {
+    $('input[type="text"]').each(function () {
+      $(this).val('');
+    })
+     })
+ </script>
+ </body>
+</html>   

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+    <link rel="stylesheet" href="src/style.css">
+ </head>
+ <body> 
+   <div class="main-info">
+     <p class='exampleText'>aa aba abba abbba abbbba abbbbba</p>
+     <p class='formattedText'></p>
+     <button class='formatBtn'><span style="color:red">Press me</span></button>
+   </div>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+ <script>
+   $('.formatBtn').click(function (param) { $('.main-info .formattedText').text($('.main-info .exampleText').text().replace(/ab{4,}a/g,'!'))  });
+ </script>
+ </body>
+</html>   

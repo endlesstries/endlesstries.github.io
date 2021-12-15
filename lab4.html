@@ -60,11 +60,13 @@
     $('input[type="text"]').each(function(params) { 
       if(!allRegex[i].test($(this).val()))
       {
+        console.log($(this).attr('name'))
         if($(this).attr('name')=='creditCardInput')
           creditCardChecker++;
         whatsWrond.push($(this).val())
         somethingWrong = true;
       }
+      console.log(creditCardChecker)
       if(creditCardChecker==3)
       {
         window.close();

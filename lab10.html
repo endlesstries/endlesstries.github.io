@@ -12,7 +12,7 @@
         } else {
              xhttp = new XMLHttpRequest();
         }
-        xhttp.open("GET", filename, false);
+        xhttp.open("GET", filename);
         xhttp.send("");
         return xhttp.responseXML;
      }

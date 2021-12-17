@@ -23,7 +23,7 @@
      xml.getElementsByTagName("weight")[0].childNodes[0].nodeValue='Пятьсот грамм';
      var xmlArray = xml.getElementsByTagName('ingredient')
      for (var i = 0; i < xmlArray.length; i++) {
-      xmlArray[i].attributes.quantity.value=newValues[i];
+      xmlArray[i].attributes.quantity.nodeValue=newValues[i];
      }
      console.log(xml.getElementsByTagName('ingredient'))
      xml.getElementsByTagName("caloriesAmount")[0].childNodes[0].nodeValue='Пятьсот грамм';

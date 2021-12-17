@@ -16,29 +16,15 @@
         xhttp.send("");
         return xhttp.responseXML;
      }
-
+     var newValues = ['Пятьсот','Две тысячи пятьсот','Двадцать пять']
      xml = loadXMLDoc("src/lab7xsl.xml");
      xsl = loadXMLDoc("src/lab9.xsl");
-     xml2 = xml.cloneNode(true);
-     xml2.getElementsByTagName("weight")[0].childNodes[0].nodeValue=xml2.getElementsByTagName("weight")[0].childNodes[0].nodeValue.replace('500','Пятьсот');
-    for(var [key,value] of Object.entries(xml2.getElementsByTagName("ingredients")[0].children))
-    {
-    }
-                //.forEach(element => {
-    //      console.log(element)
-    //  });
-     xml2.getElementsByTagName("ingredients")[0].children[0].attributes[1].nodeValue = xml2.getElementsByTagName("ingredients")[0].children[0].attributes[1].nodeValue.replace('500','Пятьсот')
-  //   console.log(xml2.getElementsByTagName("weight")[0].childNodes[0].nodeValue)
+     xml.getElementsByTagName("weight")[0].childNodes[0].nodeValue='Пятьсот грамм';
+     xml.getElementsByTagName("caloriesAmount")[0].childNodes[0].nodeValue='Пятьсот грамм';
      if (document.implementation && document.implementation.createDocument) {
         xsltProcessor = new XSLTProcessor();
         xsltProcessor.importStylesheet(xsl);
         resultDocument = xsltProcessor.transformToFragment(xml, document);
-        document.getElementById('example').appendChild(resultDocument);
-     }
-     if (document.implementation && document.implementation.createDocument) {
-        xsltProcessor = new XSLTProcessor();
-        xsltProcessor.importStylesheet(xsl);
-        resultDocument = xsltProcessor.transformToFragment(xml2, document);
         document.getElementById('example').appendChild(resultDocument);
      }
 		</script>

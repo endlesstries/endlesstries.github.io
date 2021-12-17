@@ -21,7 +21,8 @@
      xsl = loadXMLDoc("src/lab9.xsl");
      console.log(xml)
      xml.getElementsByTagName("weight")[0].childNodes[0].nodeValue='Пятьсот грамм';
-     xml.getElementsByTagName("caloriesAmount")[0].childNodes[0].nodeValue='Пятьсот грамм';
+     console.log(xml.getElementsByTagName('ingredient'))
+      xml.getElementsByTagName("caloriesAmount")[0].childNodes[0].nodeValue='Пятьсот грамм';
      if (document.implementation && document.implementation.createDocument) {
         xsltProcessor = new XSLTProcessor();
         xsltProcessor.importStylesheet(xsl);

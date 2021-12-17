@@ -19,21 +19,14 @@
 
      xml = loadXMLDoc("src/lab7xsl.xml");
      xsl = loadXMLDoc("src/lab9.xsl");
-     xml2 = xml.cloneNode(true);
-      xml2.getElementsByTagName("weight")[0].childNodes[0].nodeValue='Пятьсот грамм';
-      xml2.getElementsByTagName('ingredient')[0].setAttribute('quantity','Пятьсот');
-      xml2.getElementsByTagName('ingredient')[2].setAttribute('quantity','Двадцать пять');
-      xml2.getElementsByTagName("caloriesAmount")[0].childNodes[0].nodeValue='Пятьсот грамм';
+     xml.getElementsByTagName("weight")[0].childNodes[0].nodeValue='Пятьсот грамм';
+     xml.getElementsByTagName('ingredient')[0].setAttribute('quantity','Пятьсот');
+     xml.getElementsByTagName('ingredient')[2].setAttribute('quantity','Двадцать пять');
+     xml.getElementsByTagName("caloriesAmount")[0].childNodes[0].nodeValue='Пятьсот грамм';
      if (document.implementation && document.implementation.createDocument) {
         xsltProcessor = new XSLTProcessor();
         xsltProcessor.importStylesheet(xsl);
         resultDocument = xsltProcessor.transformToFragment(xml, document);
-        document.getElementById('example').appendChild(resultDocument);
-     }
-     if (document.implementation && document.implementation.createDocument) {
-        xsltProcessor = new XSLTProcessor();
-        xsltProcessor.importStylesheet(xsl);
-        resultDocument = xsltProcessor.transformToFragment(xml2, document);
         document.getElementById('example').appendChild(resultDocument);
      }
 		</script>

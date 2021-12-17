@@ -6,7 +6,7 @@
         <name>Картошка в мундире</name>
         <weight>500 грамм</weight>
         <ingredients>
-            <ingredient name="Картошка" quantity="500"/>
+            <ingredient name="Картошка" quantity="Пятьсот"/>
             <ingredient name="Вода" quantity="2500"/>
             <ingredient name="Соль" quantity="25"/>
         </ingredients>

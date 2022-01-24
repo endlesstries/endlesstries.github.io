@@ -30,11 +30,11 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
  <script>
-   var nameRegexp = /^([А-ЯЁ]{1}[а-яё]{0,}[-`]{0,1}[а-яё]+)*/;
-   var surnameRegexp = /^([А-ЯЁ]{1}[а-яё]{0,}[-`]{0,1}[а-яё]+)*/;
-   var organizationRegexp = /^[А-ЯЁ]*\s{0,1}\"[\sА-ЯЁа-яё]*\"$/;
+   var nameRegexp = /^([А-ЯЁ]{1}[а-яё]{0,}[-`]{0,1}[а-яёА-ЯЁ]+)*/;
+   var surnameRegexp = /^([А-ЯЁ]{1}[а-яё]{0,}[-`]{0,1}[а-яёА-ЯЁ]+)*/;
+   var organizationRegexp = /^[А-ЯЁ]*?\s?\"?([а-яёА-ЯЁ0-9]|[- @\.#&!№`'])*\"?$/;
    var creditCardRegexp = /^\d{4}\s\d{4}\s\d{4}\s\d{4}/;
-   var phoneNumberRegexp = /[+]\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
+   var phoneNumberRegexp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
    var emailRegex =/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
    var allRegex = [];
    var creditCardChecker=0;

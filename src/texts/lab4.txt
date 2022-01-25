@@ -6,7 +6,7 @@
  </head>
  <body> 
    <div class="checker">
-     <p>Имяя</p>
+     <p>Имя</p>
      <input type="text" name="nameInput" class="">
      <p>Фамилия</p>
      <input type="text" name="surnameInput" id="">
@@ -32,7 +32,7 @@
  <script>
    var nameRegexp = /^([А-ЯЁ]{1}[а-яё]{0,}[-`]{0,1}[а-яёА-ЯЁ]+)*/;
    var surnameRegexp = /^([А-ЯЁ]{1}[а-яё]{0,}[-`]{0,1}[а-яёА-ЯЁ]+)*/;
-   var organizationRegexp = /^[А-ЯЁ]*?\s?\"?([а-яёА-ЯЁ0-9]|[- @\.#&!№`'])*\"?$/;
+   var organizationRegexp = /^[А-ЯЁа-яё\s]*?\s?[\"«]?([а-яёА-ЯЁ0-9]|[- @\.#&!№`'„“])*[\"»]?$/;
    var creditCardRegexp = /^\d{4}\s\d{4}\s\d{4}\s\d{4}/;
    var phoneNumberRegexp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
    var emailRegex =/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
